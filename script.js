@@ -4,16 +4,18 @@ const response = document.getElementById("response");
 const question = document.getElementById("question");
 
 let noCount = 0;
+const isMobile = window.innerWidth <= 600;
 
 /* NO button escapes */
-noBtn.addEventListener("mouseover", () => {
+noBtn.addEventListener(isMobile ? "click" : "mouseover", () => {
     noCount++;
 
-    const x = Math.random() * 250;
-    const y = Math.random() * 60;
-
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
+    if (!isMobile) {
+        const x = Math.random() * 220;
+        const y = Math.random() * 60;
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    }
 
     if (noCount === 3) {
         question.innerText = "Come on 😢 Please?";
@@ -26,21 +28,20 @@ noBtn.addEventListener("mouseover", () => {
     }
 });
 
-/* YES button action */
+/* YES button */
 yesBtn.addEventListener("click", () => {
     question.innerText = "You just made this special 💖";
     response.innerHTML =
         "Arohi, I knew it 😍<br>" +
-        "Lets make it spcl Babes 💕";
+        "Let's make the day special Babe'sss 💕";
 
-    noBtn.style.display = "none";
     yesBtn.style.display = "none";
+    noBtn.style.display = "none";
 
     confettiEffect();
 });
 
-
-/* Celebration effect */
+/* Celebration hearts */
 function confettiEffect() {
     for (let i = 0; i < 30; i++) {
         const heart = document.createElement("div");
@@ -56,7 +57,7 @@ function confettiEffect() {
     }
 }
 
-/* Extra animation */
+/* Animation keyframe */
 const style = document.createElement("style");
 style.innerHTML = `
 @keyframes floatUp {
