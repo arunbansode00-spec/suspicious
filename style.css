@@ -1,0 +1,133 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Background */
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Card */
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    width: 350px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    animation: pop 0.8s ease;
+}
+
+@keyframes pop {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Question */
+h1 {
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.btn-area {
+    position: relative;
+    height: 80px;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+#yesBtn {
+    background-color: #ff4d6d;
+    color: white;
+}
+
+#noBtn {
+    background-color: #ddd;
+    position: absolute;
+}
+
+/* Response text */
+#response {
+    margin-top: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff4d6d;
+}
+
+/* Floating hearts */
+.hearts::before {
+    content: "💖 💕 💘 💗 💓 💞";
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    animation: float 6s linear infinite;
+    font-size: 40px;
+    opacity: 0.3;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh); }
+    100% { transform: translateY(-100vh); }
+}
+/* Side panels */
+.side {
+    position: absolute;
+    width: 220px;
+    color: white;
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.side.left {
+    left: 40px;
+    top: 40%;
+    text-align: left;
+}
+
+.side.right {
+    right: 40px;
+    top: 40%;
+    text-align: right;
+}
+
+/* Name styling */
+.name {
+    font-size: 28px;
+    color: #ff4d6d;
+    margin-bottom: 10px;
+}
+
+/* Subtitle */
+.subtitle {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* Responsive (important) */
+@media (max-width: 900px) {
+    .side {
+        display: none;
+    }
+}
