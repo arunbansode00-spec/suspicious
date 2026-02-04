@@ -1,4 +1,4 @@
-/* Reset */
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -6,41 +6,95 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
-/* Background */
+/* BACKGROUND */
 body {
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(135deg, #ff758c, #ff7eb3);
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
-/* Card */
+/* FLOATING HEARTS */
+.hearts::before {
+    content: "💖 💕 💘 💗 💓 💞";
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    animation: float 8s linear infinite;
+    font-size: 36px;
+    opacity: 0.25;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh); }
+    100% { transform: translateY(-100vh); }
+}
+
+/* SIDE TEXT */
+.side {
+    position: absolute;
+    width: 220px;
+    color: white;
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.side.left {
+    left: 40px;
+    top: 40%;
+    text-align: left;
+}
+
+.side.right {
+    right: 40px;
+    top: 40%;
+    text-align: right;
+}
+
+/* MAIN CARD */
 .card {
     background: white;
-    padding: 40px;
+    padding: 40px 30px;
     border-radius: 25px;
     text-align: center;
-    width: 350px;
+    width: 360px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.25);
     animation: pop 0.8s ease;
+    z-index: 2;
 }
 
 @keyframes pop {
-    0% { transform: scale(0.5); opacity: 0; }
+    0% { transform: scale(0.6); opacity: 0; }
     100% { transform: scale(1); opacity: 1; }
 }
 
-/* Question */
-h1 {
-    margin-bottom: 30px;
+/* NAME */
+.name {
+    font-size: 28px;
+    color: #ff4d6d;
+    margin-bottom: 10px;
 }
 
-/* Buttons */
+/* QUESTION */
+#question {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+/* SUBTITLE */
+.subtitle {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* BUTTON AREA */
 .btn-area {
     position: relative;
-    height: 80px;
+    height: 90px;
 }
 
 button {
@@ -66,7 +120,7 @@ button:hover {
     position: absolute;
 }
 
-/* Response text */
+/* RESPONSE */
 #response {
     margin-top: 25px;
     font-size: 20px;
@@ -74,60 +128,59 @@ button:hover {
     color: #ff4d6d;
 }
 
-/* Floating hearts */
-.hearts::before {
-    content: "💖 💕 💘 💗 💓 💞";
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    animation: float 6s linear infinite;
-    font-size: 40px;
-    opacity: 0.3;
-}
+/* =========================
+   MOBILE RESPONSIVE FIX
+   ========================= */
+@media (max-width: 600px) {
 
-@keyframes float {
-    0% { transform: translateY(100vh); }
-    100% { transform: translateY(-100vh); }
-}
-/* Side panels */
-.side {
-    position: absolute;
-    width: 220px;
-    color: white;
-    font-size: 18px;
-    line-height: 1.6;
-    opacity: 0.9;
-}
+    body {
+        padding: 20px;
+        align-items: flex-start;
+    }
 
-.side.left {
-    left: 40px;
-    top: 40%;
-    text-align: left;
-}
-
-.side.right {
-    right: 40px;
-    top: 40%;
-    text-align: right;
-}
-
-/* Name styling */
-.name {
-    font-size: 28px;
-    color: #ff4d6d;
-    margin-bottom: 10px;
-}
-
-/* Subtitle */
-.subtitle {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 25px;
-}
-
-/* Responsive (important) */
-@media (max-width: 900px) {
+    /* Hide side text */
     .side {
-        display: none;
+        display: none !important;
+    }
+
+    /* Card full & centered */
+    .card {
+        width: 100%;
+        max-width: 320px;
+        margin-top: 80px;
+        padding: 30px 20px;
+        border-radius: 20px;
+    }
+
+    .name {
+        font-size: 24px;
+    }
+
+    #question {
+        font-size: 20px;
+        line-height: 1.4;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .btn-area {
+        height: 110px;
+    }
+
+    button {
+        width: 100%;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    #noBtn {
+        position: relative;
+        margin-top: 10px;
+    }
+
+    #response {
+        font-size: 18px;
     }
 }
