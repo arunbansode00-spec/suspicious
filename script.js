@@ -31,7 +31,7 @@ yesBtn.addEventListener("click", () => {
     question.innerText = "You just made this special 💖";
     response.innerHTML =
         "Arohi, I knew it 😍<br>" +
-        "This means more than words 💕";
+        "Lets make it spcl Babes 💕";
 
     noBtn.style.display = "none";
     yesBtn.style.display = "none";
