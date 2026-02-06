@@ -24,7 +24,10 @@ noBtn.addEventListener(isMobile ? "click" : "mouseover", () => {
         question.innerText = "You can’t escape destiny 😏";
     }
     if (noCount >= 9) {
-        question.innerText = "Just say YES already 💍";
+        question.innerText = "Just say YES already 😁";
+    }
+     if (noCount >= 9) {
+        question.innerText = "Abhi Maan bhi jaav yaar 💍";
     }
 });
 
@@ -32,8 +35,8 @@ noBtn.addEventListener(isMobile ? "click" : "mouseover", () => {
 yesBtn.addEventListener("click", () => {
     question.innerText = "You just made this special 💖";
     response.innerHTML =
-        "Arohi, I knew it 😍<br>" +
-        "Let's make the day special Babe'sss 💕";
+        "I knew it 😍<br>" +
+        "Let's gooooooo ! 🙂🙃 💕";
 
     yesBtn.style.display = "none";
     noBtn.style.display = "none";
